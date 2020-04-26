@@ -1,0 +1,1 @@
+< Paste | PasteSelection | Copy >
