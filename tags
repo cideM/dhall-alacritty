@@ -7,3 +7,10 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/41e1fb63/
+Quickstart	README.md	/^## Quickstart$/;"	s	chapter:dhall-alacritty
+Read This First!	keys/read_this_first.md	/^# Read This First!$/;"	c
+dhall-alacritty	README.md	/^# dhall-alacritty$/;"	c
+linux	Makefile	/^linux : linux.dhall$/;"	t
+linux_test	Makefile	/^linux_test : linux_test.dhall$/;"	t
+macos	Makefile	/^macos : macos.dhall$/;"	t
+windows	Makefile	/^windows : windows.dhall$/;"	t

@@ -1,12 +1,12 @@
-let Font = ./font/linux.dhall
+let Font = ./font/windows.dhall
 
-let Keys = ./keys/linux.dhall
+let Keys = ./keys/windows.dhall
 
-let Window = ./window/linux.dhall
+let Window = ./window/windows.dhall
 
 let Env = ./env.dhall
 
-let Shell = ./shell/linux.dhall
+let Shell = ./shell/windows.dhall
 
 let Scrolling = ./scrolling.dhall
 
@@ -16,9 +16,9 @@ let VisualBell = ./visual.dhall
 
 let Opacity = ./opacity.dhall
 
-let MouseBindings = ./mouse_bindings/linux.dhall
+let MouseBindings = ./mouse_bindings/windows.dhall
 
-let Mouse = ./mouse/linux.dhall
+let Mouse = ./mouse/windows.dhall
 
 let Cursor = ./cursor.dhall
 
@@ -27,10 +27,10 @@ let Colors = ./colors.dhall
 let Misc = ./misc.dhall
 
 let defaultFont =
-      { normal = { family = "monospace", style = "Regular" }
-      , bold = { family = "monospace", style = "Bold" }
-      , italic = { family = "monospace", style = "Italic" }
-      , bold_italic = { family = "monospace", style = "Italic" }
+      { normal = { family = "Consolas", style = "Regular" }
+      , bold = { family = "Consolas", style = "Bold" }
+      , italic = { family = "Consolas", style = "Italic" }
+      , bold_italic = { family = "Consolas", style = "Italic" }
       }
 
 let Config =
