@@ -22,4 +22,5 @@ in  { showBindings
     , showAction
     , Command = common.Command
     , CommonAction = common.Action
+    , Binding = common.Keybinding
     }

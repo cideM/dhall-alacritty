@@ -17,10 +17,9 @@ let showBindings
 in  { showBindings
     , KbdIn = KeybindingInput
     , Action
-    , showAction
     , Modifier = common.Modifier
     , Mode = common.Mode
+    , showAction
     , Command = common.Command
-    , Kbd = common.Keybinding
-    , CommonAction = common.Action
+    , Binding = common.Keybinding
     }

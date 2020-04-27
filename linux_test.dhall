@@ -1,4 +1,4 @@
-let Alacritty = https://github.com/cideM/dhall-alacritty/linux.dhall
+let Alacritty = https://raw.githubusercontent.com/cideM/dhall-alacritty/master/linux.dhall
 
 in  Alacritty.Config::{
     , window = Alacritty.Window.Schema::{

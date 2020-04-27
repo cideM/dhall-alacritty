@@ -37,7 +37,7 @@ let Config =
       { Type =
             Misc.Type
           ⩓ { font : Font.Type
-            , key_bindings : List Keys.Kbd
+            , key_bindings : List Keys.Binding
             , window : Window.Schema.Type
             , env : Env.Type
             , shell : Shell.Type
@@ -53,7 +53,7 @@ let Config =
       , default =
             Misc.default
           ∧ { font = Font::{=} ⫽ defaultFont
-            , key_bindings = [] : List Keys.Kbd
+            , key_bindings = [] : List Keys.Binding
             , window = Window.Schema::{=}
             , env = Env.default
             , shell = Shell.Type
