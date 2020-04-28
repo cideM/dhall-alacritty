@@ -2,6 +2,8 @@
 
 ## Quickstart
 
+_requires dhall to be installed_
+
 Create an alacritty.dhall file...
 
 ```dhall
