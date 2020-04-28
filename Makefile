@@ -2,13 +2,9 @@
 linux : linux.dhall
 	dhall-to-yaml --file linux.dhall
 
-.PHONY: linux_test
-linux_test : linux_test.dhall
-	dhall-to-yaml --file linux_test.dhall
-
-.PHONY: linux_test_keys
-linux_test_keys : linux_test_keys.dhall
-	dhall-to-yaml --file linux_test_keys.dhall
+.PHONY: tests
+tests : tests.dhall
+	dhall-to-yaml --file tests.dhall
 
 .PHONY: macos
 macos : macos.dhall
