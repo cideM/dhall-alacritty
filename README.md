@@ -21,7 +21,24 @@ in  Alacritty.Config::{
 
 ... and run `dhall-to-yaml --file alacritty.dhall --output alacritty.yml`
 
-This will create the alacritty.yml configuration file with the defaults for linux. For windows or macos, just use a different `.dhall` file in the import.
+This will create the alacritty.yml configuration file with the defaults for linux and some customziations. For windows or macos, just use a different `.dhall` file in the import.
+
+If you only want to override specific keys you can easily do so using `with`:
+
+```dhall
+let Alacritty = ~/private/dhall-alacritty/linux.dhall
+
+in  Alacritty.Config::{
+    , font = ./mono.dhall
+    , shell = Some { program = "/usr/bin/fish", args = [ "-l" ] }
+    , colors = ./papercolor.dhall
+    , key_bindings = ./keys_common.dhall
+    }
+  with window.decorations = Alacritty.Window.Decoration.full
+  with dynamic_padding = True
+```
+
+(Notice that I no longer need to specify the `Alacritty.Window.Schema::{}`)
 
 ## Why
 
@@ -39,7 +56,7 @@ You can already see an example of how to override defaults above. The record you
 Foo::{ bar = { a = 1 } }
 ```
 
-... will replace the record at `bar` with a new record. If `bar`s type is `bar : { a : Natural, b : Natural }` then you'll get a type error since you didn't specificy `b`. On the upside, you won't silently delete things due to the compiler safety.
+... will replace the record at `bar` with a new record. If `bar`s type is `bar : { a : Natural, b : Natural }` then you'll get a type error since you didn't specify `b`. On the upside, you won't silently delete things due to the compiler safety.
 
 ### Keybindings
 
