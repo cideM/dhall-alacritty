@@ -35,7 +35,7 @@ in  Alacritty.Config::{
     , key_bindings = ./keys_common.dhall
     }
   with window.decorations = Alacritty.Window.Decoration.full
-  with dynamic_padding = True
+  with window.dynamic_padding = True
 ```
 
 (Notice that I no longer need to specify the `Alacritty.Window.Schema::{}`)
