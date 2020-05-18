@@ -2,7 +2,7 @@ let Prelude =
       -- *************IMPORTANT*************
       -- **Please see the read_this_first.md in the /keys folder for info on the polymorphism here**
       -- *************IMPORTANT*************
-      https://prelude.dhall-lang.org/package.dhall sha256:6b90326dc39ab738d7ed87b970ba675c496bed0194071b332840a87261649dcd
+      https://prelude.dhall-lang.org/package.dhall sha256:7e2b87add393288298baabc73119601182d04630b9989bdb9ac0822dc0863b38
 
 let keys = ../keys/common.dhall
 
