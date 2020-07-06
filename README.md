@@ -44,8 +44,6 @@ in  Alacritty.Config::{
 
 I started this as a way of learning Dhall but then it escalated a bit and I ended up adding types for the entire alacritty config, including types and defaults for all platforms. The major goal here was learning about the language and implementing a maximum of type safety, not ergonomics. It should cover the entire configuration but if something is missing (be it a type or a constructor) or if I misinterpreted the comments in https://github.com/alacritty/alacritty/blob/master/alacritty.yml please let me know by creating an issue here in the repository!
 
-I'm using this in my own [dotfiles](https://github.com/cideM/dotfiles) to generate my [alacritty config](https://github.com/cideM/dotfiles/blob/master/alacritty/.config/alacritty/linux.dhall)
-
 ## Overriding Defaults
 
 ### Basics
