@@ -2,7 +2,7 @@ let Prelude =
     -- *************IMPORTANT*************
     -- **Please see the read_this_first.md in this folder for info on the polymorphism here**
     -- *************IMPORTANT*************
-      https://prelude.dhall-lang.org/package.dhall sha256:7e2b87add393288298baabc73119601182d04630b9989bdb9ac0822dc0863b38
+      https://prelude.dhall-lang.org/package.dhall sha256:10db3c919c25e9046833df897a8ffe2701dc390fa0893d958c3430524be5a43e
 
 let Action
     : Type
@@ -59,8 +59,8 @@ let Action
 
 let showAction
     : Action → Text
-    =   λ(a : Action)
-      → merge
+    = λ(a : Action) →
+        merge
           { ToggleViMode = "ToggleViMode"
           , Copy = "Copy"
           , Paste = "Paste"
@@ -122,8 +122,8 @@ let Modifier
     = < Command | Super | Control | Shift | Alt | Option >
 
 let showMod =
-        λ(m : Modifier)
-      → merge
+      λ(m : Modifier) →
+        merge
           { Command = "Command"
           , Super = "Super"
           , Control = "Control"
@@ -135,13 +135,13 @@ let showMod =
 
 let makeMods
     : List Modifier → Text
-    =   λ(mods : List Modifier)
-      → Prelude.Text.concatMapSep "|" Modifier showMod mods
+    = λ(mods : List Modifier) →
+        Prelude.Text.concatMapSep "|" Modifier showMod mods
 
 let makeModsOpt
     : Optional (List Modifier) → Optional Text
-    =   λ(mods : Optional (List Modifier))
-      → Prelude.Optional.map (List Modifier) Text makeMods mods
+    = λ(mods : Optional (List Modifier)) →
+        Prelude.Optional.map (List Modifier) Text makeMods mods
 
 let Mode
     : Type
@@ -157,8 +157,8 @@ let Mode
 
 let handleMode
     : Mode → Text
-    =   λ(m : Mode)
-      → merge
+    = λ(m : Mode) →
+        merge
           { AppCursor = "AppCursor"
           , NotAppCursor = "~AppCursor"
           , AppKeypad = "AppKeypad"
@@ -205,8 +205,8 @@ let CharsBinding =
       }
 
 let charsHandler =
-        λ(cb : CharsBinding)
-      → Keybinding.Chars
+      λ(cb : CharsBinding) →
+        Keybinding.Chars
           { key = cb.key
           , mode = showMode cb.mode
           , chars = cb.chars
@@ -221,8 +221,8 @@ let CommandBinding =
       }
 
 let commandHandler =
-        λ(cb : CommandBinding)
-      → Keybinding.Command
+      λ(cb : CommandBinding) →
+        Keybinding.Command
           { key = cb.key
           , mode = showMode cb.mode
           , command = cb.command
@@ -231,22 +231,22 @@ let commandHandler =
 
 let ActionBinding
     : ∀(action : Type) → Type
-    =   λ(action : Type)
-      → { key : Text
+    = λ(action : Type) →
+        { key : Text
         , mode : Optional Mode
         , mods : Optional (List Modifier)
         , action : action
         }
 
 let actionHandler
-    :   ∀(action : Type)
-      → ∀(show : action → Text)
-      → ∀(bdg : ActionBinding action)
-      → Keybinding
-    =   λ(action : Type)
-      → λ(show : action → Text)
-      → λ(bdg : ActionBinding action)
-      → Keybinding.Action
+    : ∀(action : Type) →
+      ∀(show : action → Text) →
+      ∀(bdg : ActionBinding action) →
+        Keybinding
+    = λ(action : Type) →
+      λ(show : action → Text) →
+      λ(bdg : ActionBinding action) →
+        Keybinding.Action
           { key = bdg.key
           , mode = showMode bdg.mode
           , action = show bdg.action
@@ -255,21 +255,21 @@ let actionHandler
 
 let KeybindingIn
     : ∀(action : Type) → Type
-    =   λ(action : Type)
-      → < Action : ActionBinding action
+    = λ(action : Type) →
+        < Action : ActionBinding action
         | Chars : CharsBinding
         | Command : CommandBinding
         >
 
 let handleBinding
-    :   ∀(action : Type)
-      → ∀(show : action → Text)
-      → ∀(bdg : KeybindingIn action)
-      → Keybinding
-    =   λ(action : Type)
-      → λ(show : action → Text)
-      → λ(bdg : KeybindingIn action)
-      → merge
+    : ∀(action : Type) →
+      ∀(show : action → Text) →
+      ∀(bdg : KeybindingIn action) →
+        Keybinding
+    = λ(action : Type) →
+      λ(show : action → Text) →
+      λ(bdg : KeybindingIn action) →
+        merge
           { Action = actionHandler action show
           , Chars = charsHandler
           , Command = commandHandler
@@ -277,14 +277,14 @@ let handleBinding
           bdg
 
 let showBindings
-    :   ∀(action : Type)
-      → ∀(show : action → Text)
-      → List (KeybindingIn action)
-      → List Keybinding
-    =   λ(action : Type)
-      → λ(show : action → Text)
-      → λ(kbds : List (KeybindingIn action))
-      → Prelude.List.map
+    : ∀(action : Type) →
+      ∀(show : action → Text) →
+      List (KeybindingIn action) →
+        List Keybinding
+    = λ(action : Type) →
+      λ(show : action → Text) →
+      λ(kbds : List (KeybindingIn action)) →
+        Prelude.List.map
           (KeybindingIn action)
           Keybinding
           (handleBinding action show)
