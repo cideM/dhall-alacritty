@@ -43,7 +43,7 @@ let Config =
             , shell : Shell.Type
             , scrolling : Scrolling.Type
             , debug : Debug.Schema.Type
-            , visual_bell : VisualBell.Schema.Type
+            , bell : VisualBell.Schema.Type
             , opacity : Opacity.Type
             , mouse_bindings : List MouseBindings.Mbd
             , mouse : Mouse.Schema.Type
@@ -59,7 +59,7 @@ let Config =
             , shell = Shell.Type
             , scrolling = Scrolling::{=}
             , debug = Debug.Schema::{=}
-            , visual_bell = VisualBell.Schema::{=}
+            , bell = VisualBell.Schema::{=}
             , opacity = Opacity::{=}
             , mouse = Mouse.Schema::{=}
             , mouse_bindings = [] : List MouseBindings.Mbd
