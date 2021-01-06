@@ -2,7 +2,7 @@ let Prelude =
     -- *************IMPORTANT*************
     -- **Please see the read_this_first.md in this folder for info on the polymorphism here**
     -- *************IMPORTANT*************
-      https://prelude.dhall-lang.org/package.dhall sha256:10db3c919c25e9046833df897a8ffe2701dc390fa0893d958c3430524be5a43e
+      https://prelude.dhall-lang.org/package.dhall sha256:21754b84b493b98682e73f64d9d57b18e1ca36a118b81b33d0a243de8455814b
 
 let Action
     : Type

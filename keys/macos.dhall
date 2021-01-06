@@ -4,8 +4,8 @@ let Action = < ToggleSimpleFullscreen >
 
 let showAction
     : Action → Text
-    =   λ(a : Action)
-      → merge { ToggleSimpleFullscreen = "ToggleSimpleFullscreen" } a
+    = λ(a : Action) →
+        merge { ToggleSimpleFullscreen = "ToggleSimpleFullscreen" } a
 
 let KeybindingInput
     : Type

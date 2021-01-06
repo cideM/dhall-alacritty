@@ -6,8 +6,8 @@ let Modifier
 
 let handleModifier
     : Modifier → Text
-    =   λ(m : Modifier)
-      → merge
+    = λ(m : Modifier) →
+        merge
           { Empty = "None"
           , Common = λ(mods : List keys.Modifier) → keys.makeMods mods
           }
