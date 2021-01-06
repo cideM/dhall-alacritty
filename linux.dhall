@@ -56,7 +56,7 @@ let Config =
             , key_bindings = [] : List Keys.Binding
             , window = Window.Schema::{=}
             , env = Env.default
-            , shell = Shell.Type
+            , shell = Shell.default
             , scrolling = Scrolling::{=}
             , debug = Debug.Schema::{=}
             , bell = VisualBell.Schema::{=}

@@ -1,1 +1,1 @@
-let common = ./common.dhall in { Type = common.Type, default = None }
+let common = ./common.dhall in { Type = common.Type, default = None common.Default }
