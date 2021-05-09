@@ -1,5 +1,12 @@
 # dhall-alacritty
 
+## Archived
+
+This repository hasn't been updated in a long time and it's guaranteed to no longer represent the actual configuration options of Alacritty. If I ever find the time and motivation to revisit this, here are some TODOs:
+
+- Figure out how to maintain different versions of the configuration in one repository. Meaning one for Alacritty 4.0.0, another for 5.0.0, and so on
+- Handle platform differences in a better way. Usually there's a common set of options which is then extended for each platform. The [issue on combinding unions might be relevant](https://github.com/dhall-lang/dhall-lang/issues/175)
+
 ## Quickstart
 
 _requires dhall to be installed_
